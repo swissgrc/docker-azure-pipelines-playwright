@@ -19,11 +19,17 @@ WORKDIR /
 # renovate: datasource=github-tags depName=microsoft/playwright extractVersion=^v(?<version>.*)$
 ENV PLAYWRIGHT_VERSION=1.55.1
 
+# Install Playwright browsers to a custom path to avoid permission issues
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
 RUN npm install -g --ignore-scripts playwright@${PLAYWRIGHT_VERSION} && \
-  # Clean up
-  npm cache clean --force && \  
   # Install browsers with dependencies
-  playwright install --with-deps && \  
+  mkdir /ms-playwright && \
+  playwright install --with-deps && \
+  chmod -R 777 /ms-playwright && \
+  # Clean up
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  npm cache clean --force && \
   # Smoke test
   playwright install --list
-  
