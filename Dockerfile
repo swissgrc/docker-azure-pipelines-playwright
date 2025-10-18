@@ -17,7 +17,7 @@ WORKDIR /
 # Install Playwright
 
 # renovate: datasource=github-tags depName=microsoft/playwright extractVersion=^v(?<version>.*)$
-ENV PLAYWRIGHT_VERSION=1.55.1
+ENV PLAYWRIGHT_VERSION=1.56.1
 
 # Install Playwright browsers to a custom path to avoid permission issues
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
