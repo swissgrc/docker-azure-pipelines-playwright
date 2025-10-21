@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-node:22.20.0-net9 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-node:22.21.0-net9 AS base
 
 # Final image
 FROM base AS final
