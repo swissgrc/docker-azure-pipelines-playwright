@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-node:22.20.0-net9 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-node:24.13.0-net10 AS base
 
 # Final image
 FROM base AS final
@@ -17,7 +17,7 @@ WORKDIR /
 # Install Playwright
 
 # renovate: datasource=github-tags depName=microsoft/playwright extractVersion=^v(?<version>.*)$
-ENV PLAYWRIGHT_VERSION=1.56.1
+ENV PLAYWRIGHT_VERSION=1.58.0
 
 # Install Playwright browsers to a custom path to avoid permission issues
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
